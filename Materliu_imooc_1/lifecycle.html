@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>react test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/jsx">
+        var Hello = React.createClass({
+            getInitialState: function () {
+                alert('init');
+                return {
+                    opacity: 1.0,
+                    fontSize: '12px',
+                };
+            },
+            render: function () {
+                return <div style={this.state}>Hello {this.props.name}</div>;
+            },
+            componentWillMount: function () {
+                alert("will");
+            },
+            componentDidMount: function () {
+                alert('did');
+                //var _self = this; 
+                window.setTimeout(function () {
+                    this.setState({
+                        opacity: 0.5,
+                        fontSize: '44px',
+                    })
+                }.bind(this), 1000
+                )
+            },
+        });
+
+        React.render(
+            <Hello name="World" />,
+            document.getElementById('container')
+        );
+
+        
+	</script>
+</body>
+
+</html>
