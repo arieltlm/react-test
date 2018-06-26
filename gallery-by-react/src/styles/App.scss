@@ -1,0 +1,138 @@
+/* Base Application Styles */
+
+@font-face {
+    font-family: "icon-turn-arrow";
+    src: url("../fonts/icons/turn-arrow.eot") format("embedded-opentype"), // 适配IE
+    url("../fonts/icons/turn-arrow.woff") format("woff"), //适配chrome和firefox
+    url("../fonts/icons/turn-arrow.ttf") format("truetype"), //适配chrome和firefox、安卓、opera、sfaria、ios4.2以后
+    url("../fonts/icons/turn-arrow.svg") format("svg"); //ios4.1
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #222;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+}
+
+/* stage --start */
+
+.stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ddd;
+}
+
+/* stage --end */
+
+/* image -- start */
+
+.img-sec {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 60px);
+    perspective: 1800px;
+    @at-root {
+        //@at-root 在生成css文件的时候，可以提到根目录下
+        .img-figure {
+            position: absolute;
+            width: 320px;
+            height: 360px;
+            margin: 0;
+            padding: 40px;
+            background-color: #fff;
+            cursor: pointer;
+            box-sizing: border-box;
+            transform-origin: 0 50% 0; //（x轴，y轴，z轴）默认情况下，变形的原点位于元素的中心点，即x轴和y轴50%的位置，将变形原点改为位于x轴的原点处
+            transform-style: preserve-3d; //使被转换的子元素保留其 3D 转换
+            transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+            &.is-inverse {
+                transform: translate(320px) rotateY(180deg); //改变transform-origin之后，就产生了水平平移，则做水平上转换320px
+            }
+        }
+        figcaption {
+            text-align: center;
+            .img-title {
+                margin: 20px 0 0 0;
+                color: #a7a0a2;
+                font-size: 16px;
+            }
+            .img-back {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                padding: 50px 40px;
+                color: #a7a0a2;
+                font-size: 22px;
+                line-height: 1.25;
+                text-align: left;
+                background-color: #fff;
+                box-sizing: border-box;
+                transform: rotateY(180deg) translateZ(1px); //定义 3D 转换，只是用 Z 轴的值
+                backface-visibility: hidden; //隐藏被旋转的 div 元素的背面
+                -webkit-backface-visibility:hidden;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+/* image -- end */
+
+/* controll --start */
+
+.contorller-nav {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    z-index: 101;
+    width: 100%;
+    text-align: center;
+    @at-root {
+        .controller-unit {
+            display: inline-block;
+            margin: 0 5px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #aaa;
+            border-radius: 50%;
+            transform: scale(0.5);
+            vertical-align: middle;
+            transition: transform .6s ease-in-out, background-color .3s;
+            &.isCenter {
+                background-color: #888;
+                transform: scale(1);
+                &::after {
+                    color: #fff;
+                    font-family: "icon-turn-arrow";
+                    font-size: 80%;
+                    line-height: 30px;
+                    content: "\e600"; //翻转unicode码
+                    //灰阶渲染（手机上使用）和亚像色渲染（亮色更好，但是内存占用大，mac、ios上使用）。 
+                    //亚像色渲染：会导致亮色或者白色字体在深色背景下渲染时，字体变粗，看起来模糊
+                    -webkit-font-smoothing: antialiased; //开启chrome的灰阶平滑
+                    -moz-osx-font-smoothing: grayscale; //开启firefox在mac上的灰阶平滑
+                }
+            }
+            &.isInverse {
+                background-color: #555;
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
+
+/* controll --end */
