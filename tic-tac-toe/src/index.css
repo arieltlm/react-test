@@ -1,0 +1,75 @@
+html,
+body,
+div,
+button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: blue;
+}
+
+.game {
+    margin: 50px;
+    display: flex;
+}
+
+.board-row {
+    width: 300px;
+    overflow: hidden;
+}
+
+.board-row .square {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-bottom: none;
+    font-size: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.game .board-row .square:nth-child(3) {
+    border-right: 1px solid #ccc
+}
+
+.game .board-row:nth-child(3) .square {
+    border-bottom: 1px solid #ccc
+}
+
+.game-info{
+    margin-left:20px;
+    margin-right:20px;
+}
+.status {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+.current-step {
+    color: red;
+    font-weight: 600;
+}
+
+.winner-square {
+    color: red;
+}
+
+.order-btn {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size:16px;
+    cursor: pointer;
+}
