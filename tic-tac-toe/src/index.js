@@ -155,10 +155,6 @@ class Game extends React.Component {
         squares[i] = this.state.xIsNext ? 'X' : 'O';
 
         const moves = historyAll.map((step, move) => {
-            // const desc = move ?
-            //     'Move #' + move :
-            //     'Game start';
-            // return desc;
             return 'Move #' + (move+1)
         });
         moves.unshift('Game start')

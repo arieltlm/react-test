@@ -1,0 +1,93 @@
+.tabtitle {
+  @include size(100%, 28px);
+  color: $blue-3c;
+  background-color: $gray-f2;
+
+  & > div:first-child {
+    height: 28px;
+
+    & > ul {
+      margin: 0;
+      padding: 0;
+
+      & > li {
+        @include size(150px, 28px);
+        text-align: right;
+        line-height: 28px;
+        background: url("../images/vlinebg2.png") right center no-repeat;
+        overflow: hidden;
+
+        &.active {
+          background-color: $white;
+        }
+
+        & > div {
+          @include size(120px, 28px);
+          text-align: left;
+          padding-left: 10px;
+          @include text-overflow;
+        }
+
+        & > .fa {
+          margin-right: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  & > div:last-child {
+    margin: 4px 20px 0 0;
+    position: relative;
+
+    .dropdown-menu {
+      min-width: 120px;
+      max-height: 300px;
+      overflow: auto;
+
+      li:not(.divider) {
+        width: 120px;
+        @include text-overflow;
+        padding: 3px 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $gray-f5;
+        }
+      }
+    }
+  }
+}
+
+.tabcontent {
+  @include size(100%, calc(100% - 28px));
+  padding: 0px;
+  overflow: auto;
+
+  .operatorsec {
+    width: 800px;
+    margin: 0 auto;
+
+    @at-root {
+      .paramsec {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid $gray-dd;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .canvas_main {
+    @include size(calc(100% - 360px), 100%);
+    overflow: auto;
+  }
+
+  .opeconfigpanel {
+    @include opconfig();
+  }
+
+  .pdfsec{
+
+  }
+}

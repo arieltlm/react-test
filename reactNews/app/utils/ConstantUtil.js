@@ -1,0 +1,23 @@
+export const LOCAL_TYPE='local';
+export const FOLDER_TYPE='folder';
+export const HDFS_TYPE='hdfs';
+export const JDBC_TYPE='jdbc';
+export const HIVE_TYPE='hive';
+export const CSV_TYPE='csv';
+export const PARQUET_TYPE='parquet';
+export const MYSQL_TYPE='mysql';
+export const JSON_TYPE='json';
+export const ORACLE_TYPE='oracle';
+export const ASC_ENCODER='ASCII';
+export const ISO_ENCODER='ISO-88591';
+export const GB2312_ENCODER='GB2312';
+export const GBK_ENCODER='GBK';
+export const UTF8_ENCODER='UTF-8';
+export const UTF16_ENCODER='UTF-16';
+export const LOCAL_CSV_MSG='Local-Csv';
+export const HDFS_PARQUET_MSG='Hdfs-Parquet';
+export const HIVE_MSG='Hive';
+export const JDBC_MYSQL_MSG='Jdbc-Mysql';
+export const TRUE_TYPE='True';
+export const FALSE_TYPE='False';
+

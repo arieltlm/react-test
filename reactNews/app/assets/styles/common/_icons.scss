@@ -1,0 +1,333 @@
+@import "icons_variables";
+
+@font-face {
+  font-family: 'mininglamp';
+  src:  url('#{$icomoon-font-path}/mininglamp.eot?583j9');
+  src:  url('#{$icomoon-font-path}/mininglamp.eot?583j9#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/mininglamp.ttf?583j9') format('truetype'),
+  url('#{$icomoon-font-path}/mininglamp.woff?583j9') format('woff'),
+  url('#{$icomoon-font-path}/mininglamp.svg?583j9#mininglamp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ml-"], [class*=" ml-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'mininglamp' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ml-icon_fileopen {
+  &:before {
+    content: $ml-icon_fileopen;
+  }
+}
+.ml-icon_upload {
+  &:before {
+    content: $ml-icon_upload;
+  }
+}
+.ml-icon_add {
+  &:before {
+    content: $ml-icon_add;
+  }
+}
+.ml-icon_catalog_panel_line {
+  &:before {
+    content: $ml-icon_catalog_panel_line;
+  }
+}
+.ml-icon_catalog_panel_plane {
+  &:before {
+    content: $ml-icon_catalog_panel_plane;
+  }
+}
+.ml-icon_checkbox {
+  &:before {
+    content: $ml-icon_checkbox;
+  }
+}
+.ml-icon_clouse {
+  &:before {
+    content: $ml-icon_clouse;
+  }
+}
+.ml-icon_contrast {
+  &:before {
+    content: $ml-icon_contrast;
+  }
+}
+.ml-icon_copy {
+  &:before {
+    content: $ml-icon_copy;
+  }
+}
+.ml-icon_cut {
+  &:before {
+    content: $ml-icon_cut;
+  }
+}
+.ml-icon_delete {
+  &:before {
+    content: $ml-icon_delete;
+  }
+}
+.ml-icon_deploy {
+  &:before {
+    content: $ml-icon_deploy;
+  }
+}
+.ml-icon_edit {
+  &:before {
+    content: $ml-icon_edit;
+  }
+}
+.ml-icon_edition {
+  &:before {
+    content: $ml-icon_edition;
+  }
+}
+.ml-icon_export {
+  &:before {
+    content: $ml-icon_export;
+  }
+}
+.ml-icon_file {
+  &:before {
+    content: $ml-icon_file;
+  }
+}
+.ml-icon_format {
+  &:before {
+    content: $ml-icon_format;
+  }
+}
+.ml-icon_glued {
+  &:before {
+    content: $ml-icon_glued;
+  }
+}
+.ml-icon_image {
+  &:before {
+    content: $ml-icon_image;
+  }
+}
+.ml-icon_jurisdictionmanager {
+  &:before {
+    content: $ml-icon_jurisdictionmanager;
+  }
+}
+.ml-icon_location {
+  &:before {
+    content: $ml-icon_location;
+  }
+}
+.ml-icon_logoff {
+  &:before {
+    content: $ml-icon_logoff;
+  }
+}
+.ml-icon_modelenvironment {
+  &:before {
+    content: $ml-icon_modelenvironment;
+  }
+}
+.ml-icon_more {
+  &:before {
+    content: $ml-icon_more;
+  }
+}
+.ml-icon_new {
+  &:before {
+    content: $ml-icon_new;
+  }
+}
+.ml-icon_nodemanager {
+  &:before {
+    content: $ml-icon_nodemanager;
+  }
+}
+.ml-icon_open {
+  &:before {
+    content: $ml-icon_open;
+  }
+}
+.ml-icon_open2 {
+  &:before {
+    content: $ml-icon_open2;
+  }
+}
+.ml-icon_operator_panel_line {
+  &:before {
+    content: $ml-icon_operator_panel_line;
+  }
+}
+.ml-icon_operator_panel_plane {
+  &:before {
+    content: $ml-icon_operator_panel_plane;
+  }
+}
+.ml-icon_password {
+  &:before {
+    content: $ml-icon_password;
+  }
+}
+.ml-icon_play {
+  &:before {
+    content: $ml-icon_play;
+  }
+}
+.ml-icon_preserve {
+  &:before {
+    content: $ml-icon_preserve;
+  }
+}
+.ml-icon_quit {
+  &:before {
+    content: $ml-icon_quit;
+  }
+}
+.ml-icon_reduction {
+  &:before {
+    content: $ml-icon_reduction;
+  }
+}
+.ml-icon_release {
+  &:before {
+    content: $ml-icon_release;
+  }
+}
+.ml-icon_reporting {
+  &:before {
+    content: $ml-icon_reporting;
+  }
+}
+.ml-icon_reset {
+  &:before {
+    content: $ml-icon_reset;
+  }
+}
+.ml-icon_return {
+  &:before {
+    content: $ml-icon_return;
+  }
+}
+.ml-icon_revoke {
+  &:before {
+    content: $ml-icon_revoke;
+  }
+}
+.ml-icon_search {
+  &:before {
+    content: $ml-icon_search;
+  }
+}
+.ml-icon_serviceview {
+  &:before {
+    content: $ml-icon_serviceview;
+  }
+}
+.ml-icon_setup {
+  &:before {
+    content: $ml-icon_setup;
+  }
+}
+.ml-icon_setup2 {
+  &:before {
+    content: $ml-icon_setup2;
+  }
+}
+.ml-icon_shrink {
+  &:before {
+    content: $ml-icon_shrink;
+  }
+}
+.ml-icon_spread {
+  &:before {
+    content: $ml-icon_spread;
+  }
+}
+.ml-icon_statistics {
+  &:before {
+    content: $ml-icon_statistics;
+  }
+}
+.ml-icon_stop {
+  &:before {
+    content: $ml-icon_stop;
+  }
+}
+.ml-icon_suspend {
+  &:before {
+    content: $ml-icon_suspend;
+  }
+}
+.ml-icon_systemmanager {
+  &:before {
+    content: $ml-icon_systemmanager;
+  }
+}
+.ml-icon_taskmanager {
+  &:before {
+    content: $ml-icon_taskmanager;
+  }
+}
+.ml-icon_taskview {
+  &:before {
+    content: $ml-icon_taskview;
+  }
+}
+.ml-icon_updata {
+  &:before {
+    content: $ml-icon_updata;
+  }
+}
+.ml-icon_user {
+  &:before {
+    content: $ml-icon_user;
+  }
+}
+.ml-icon_usergroupmanager {
+  &:before {
+    content: $ml-icon_usergroupmanager;
+  }
+}
+.ml-icon_usermanager {
+  &:before {
+    content: $ml-icon_usermanager;
+  }
+}
+.ml-icon_versionmanager {
+  &:before {
+    content: $ml-icon_versionmanager;
+  }
+}
+.ml-icon_workflow {
+  &:before {
+    content: $ml-icon_workflow;
+  }
+}
+.ml-icon-dataset {
+  &:before {
+    content: $ml-icon-dataset;
+  }
+}
+.ml-icon-informationview {
+  &:before {
+    content: $ml-icon-informationview;
+  }
+}
+.ml-icon-txt {
+  &:before {
+    content: $ml-icon-txt;
+  }
+}
