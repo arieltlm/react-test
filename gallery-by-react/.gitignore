@@ -2,6 +2,7 @@
 logs
 *.log
 
+
 # Runtime data
 pids
 *.pid
@@ -32,3 +33,4 @@ bower_components/
 # IDE/Editor data
 .idea
 
+package-lock.json

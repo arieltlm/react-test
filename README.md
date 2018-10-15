@@ -16,8 +16,10 @@ yo react-webpack 项目名
   create-react-app my-app
   ```
 * my-react-test: 根据简书上文章自己用webpack搭的react框架（有点小问题）
+
 内容为官网上的知识学习练习
 
 * reactNews: 此框架是来自di的框架（热更新有些问题-后续解决）
+
 内容为慕课网上react新闻课程，一部分照搬，一部分自己根据所学进行稍微优化（未完）
 
