@@ -12,7 +12,7 @@
 
 // 是否使用的 localhost
 // 其实就是通过匹配当前地址段，然后将其强制转化成 Boolean 型常量来确定是否是本地环境
-var isLocalhost = Boolean(
+const isLocalhost = Boolean(
     window.location.hostname === 'localhost'
     // [::1] is the IPv6 localhost address.
     || window.location.hostname === '[::1]'

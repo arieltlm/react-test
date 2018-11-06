@@ -1,0 +1,87 @@
+a{
+    color: #222;
+}
+.clearfix{
+    zoom: 1;
+    &:after{
+        display: block;
+        content: '';
+        width:0;
+        height:0;
+        line-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        clear: both;
+    }
+}
+/* -------------------------------------顶部logo start*/
+.logo{
+    display: flex;
+    align-items: center;
+    img{
+        width: 48px;
+        height:48px;
+    }
+    span{
+        font-size: 30px;
+        color: #2db7f5;
+        padding-left: 5px;
+    }
+}
+// 登陆模态框
+.login-box{
+    .login-form-button{
+        width:100%;
+    }
+    .login-form-forgot{
+        float: right;
+    }
+}
+.log{
+    float: right !important;
+  }
+/* -------------------------------------顶部logo end*/
+/* -------------------------------------footer strat*/
+.footer{
+    text-align: center;
+}
+/* -------------------------------------footer end*/
+/* -------------------------------------container strat*/
+.contentContainer{
+    padding-top:10px;
+    .leftContainer{
+        width:400px;
+        margin-right: 10px;
+        img{
+            width:400px;
+            height: 240px;
+        }
+    }
+    .tabsNews{
+        width: 500px;
+    }
+}
+.news_block_list{
+    margin: 5px 0;
+}
+.topNewsList{
+    position: relative;
+    .ant-card-body{
+        padding: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .imageBlock{
+        margin: 0 3px;
+    }
+    h3{
+        font-size: 16px;
+    }
+    p{
+        color: #999;
+        font-size: 14px;
+    }
+}
+/* -------------------------------------container end*/
