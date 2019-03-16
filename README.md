@@ -23,3 +23,10 @@ yo react-webpack 项目名
 
 内容为慕课网上react新闻课程，一部分照搬，一部分自己根据所学进行稍微优化（未完）
 
+* yaqi-officialTutorial
+> 2019-03-16
+一个厉害的前同事在YouTube上传的自己录的视频——[让你感受不一样的官网](https://www.youtube.com/channel/UCjkEwdL2bqD8mHNkN0aXL1w)
+
+内容就是跟着老师实现的几个小例子，已做保存；
+
+

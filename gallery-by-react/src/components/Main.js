@@ -33,7 +33,7 @@ class ImgFigure extends React.Component {
 		}else{
 			this.props.center();
 		}
-		
+
 		e.stopPropagation();
 		e.preventDefault()
 	}
@@ -95,7 +95,7 @@ class ControllerUnits extends React.Component{
 
 		if(this.props.arrange.isCenter){
 			controllerUnitClassName += ' isCenter';
-			
+
 			if(this.props.arrange.isInverse){
 				controllerUnitClassName += ' isInverse';
 			}
@@ -213,7 +213,7 @@ class AppComponent extends React.Component {
 				rotate:0,
 				isCenter:true
 			}
-			
+
 
 			//取出要布局上侧的图片的状态信息
 			topImgSpliceIndex = Math.ceil(Math.random() * (imgsArrangeArr.length - topImgNum));
@@ -248,7 +248,7 @@ class AppComponent extends React.Component {
 					rotate:get30DegRandom(),
 					isCenter: false
 				}
-				
+
 			}
 
 			if(imgsArrangeTopArr && imgsArrangeTopArr[0]){

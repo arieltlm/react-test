@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/babel-min.js"></script>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>React demo</title> 
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Card(props) {
+            const {user} = props;
+            return (
+                <div className="card" style={{width: '24rem'}}>
+                    <img className="card-img-top" src={user.avatar_url} alt="user avatar" style={{width: '100%', height: 300}} />
+                    <div className="card-body">
+                        <h5 className="card-title">{user.login}</h5>
+                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href={user.url}  target="_blank" className="btn btn-primary">github</a>
+                    </div>
+                </div>
+            )
+        }
+
+        class Search extends React.Component{
+            constructor(props) {
+                super(props);
+                this.state = {
+                    userName: ''
+                }
+                this.myRef = React.createRef();
+
+                this.handleChange = this.handleChange.bind(this)
+                this.handleClick = this.handleClick.bind(this)
+                this.handleEnterKey = this.handleEnterKey.bind(this)
+            }
+            // 为了实现输入完成后，回车即执行查询
+            componentDidMount(){ 
+                //组件挂载时候，注册keypress事件
+                document.addEventListener('keypress',this.handleEnterKey)
+            }
+            componentWillUmount(){
+                //组件卸载时候，注销keypress事件
+                document.removeEventListener("keypress",this.handleEenterKey)
+            }
+            handleEnterKey(e) {
+                if(e.keyCode === 13){ //e.nativeEvent获取原生的事件对像
+                    this.props.handleSearch(this.state.userName)
+                }
+            }
+            // 下面这种方法也可行
+            // onKeyPress={this.handleEnterKey}
+            // handleEnterKey(e) {
+            //     if(e.nativeEvent.keyCode === 13){ //e.nativeEvent获取原生的事件对像
+            //         this.props.handleSearch(this.state.userName)
+            //     }
+            // }
+            handleChange(e) {
+                this.setState({
+                    userName: e.target.value
+                })
+            }
+            handleClick = (userName) => (e) =>{
+                this.props.handleSearch(userName)
+            }
+            render() {
+                const {userName} = this.state;
+                return (
+                    <div className="input-group mb-3">
+                        <input type="text" onChange={this.handleChange} 
+                        // onKeyPress={this.handleEnterKey}
+                        ref={this.myRef} 
+                        className="form-control"
+                        placeholder="请输入用户名" aria-label="请输入用户名" aria-describedby="basic-addon2" />
+                        <div className="input-group-append">
+                            <button className="btn btn-primary" type="button" onClick={this.handleClick(userName)}>查询</button>
+                        </div>
+                    </div>
+                )
+            }
+            
+        }
+        class App extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    user:{},
+                    isShowResult: false,
+                    loading: false
+                }
+                this.handleSearch = this.handleSearch.bind(this);
+            }
+
+            getUser(userName) {
+                fetch('https://api.github.com/users/'+ userName +'?access_token=154402ec3b538161c012aadd869cb678ec69d15a')
+                .then((res) => res.json())
+                .then((resJson) => {
+                    console.log(resJson);
+                    if(resJson.message != 'Not Found'){
+                        this.setState({
+                            user: resJson,
+                            isShowResult: true,
+                            loading: false
+                        })
+                    } else {
+                        this.setState({
+                            user: null,
+                            isShowResult: false,
+                            loading: false
+                        })
+                    }
+                    
+                })
+            }
+
+            handleSearch(userName){
+                this.setState({
+                    loading: true
+                })
+                this.getUser(userName)
+            }
+            render() {
+                const {user, isShowResult, loading} = this.state;
+                return (
+                    <div className="container mt-3">
+                        <Search handleSearch={this.handleSearch}/>
+                        <div className="search-result d-flex justify-content-center">
+                            {loading && <div className="spinner-border text-primary" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>}
+                            {isShowResult && <Card user={user}/>}
+                        </div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+</html>

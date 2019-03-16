@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/babel-min.js"></script>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <title>Handle Event</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+            constructor(props){
+                super(props);
+                this.handleClick3 = this.handleClick3.bind(this);
+                this.handleClick7 = this.handleClick7.bind(this, '点我7');
+            }
+
+            handleClick2() {
+                console.log(2);
+            }
+
+            handleClick3() {
+                console.log(3, this);
+            }
+            handleClick4() {
+                console.log(4, this);
+            }
+            handleClick5(msg) {
+                return (e) => {
+                    console.log(5, msg)
+                }
+            }
+            handleClick6(msg) {
+                console.log(6, msg)
+            }
+            handleClick7(msg) {
+                console.log(7, msg)
+            }
+            handleClick8 = (e) => {
+                console.log(8, this)
+            }
+            handleClick9 = (msg) => (e) => {
+                console.log(9)
+            }
+            render() {
+                return (
+                    <div>
+                        {/*一个项目中，关注大家的写法，尽量保持一致*/}
+                        {/*不传参数时 ，推荐3和8*/}
+                        <div onClick={() => console.log(1)}>点我1</div> {/*直接pass，通常情况下没人这样写*/}
+                        <div onClick={() => this.handleClick2()}>点我2</div> {/*每次onClick时，都会把这个箭头函数先执行一遍，造成性能冗余（测试2——未缓存）*/}
+                        <div onClick={this.handleClick3}>点我3</div> {/*优先选择此*/}
+                        <div onClick={this.handleClick4.bind(this)}>点我4</div>{/*3，4可以关注测试3，4；（测试3——已缓存。测试4——未缓存）*/}
+                        <div onClick={this.handleClick8}>点我8</div> {/*ES7的新写法，可用，与3类似*/}
+                        {/*传参数时 (只要传参数，肯定不会被缓存）,推荐5和9*/}
+                        <div onClick={this.handleClick5('点我5')}>点我5</div>
+                        <div onClick={this.handleClick6.bind(this, '点我6')}>点我6</div>{/*相对于5来说，不用在里面嵌套return函数，但是6拿不到event*/}
+                        <div onClick={this.handleClick7}>点我7</div> {/*（已缓存）pass，通常情况下没人这样写，参数写在contructor中实在是不方便*/}
+                        <div onClick={this.handleClick9('点我9')}>点我9</div> {/*简洁清晰明了*/}
+
+                        <div onClick={(() => this.handleClick2()) === (() => this.handleClick2()) ? console.log('已缓存') : console.log('未缓存')}>测试2</div>
+                        <div onClick={this.handleClick3 === this.handleClick3 ? console.log('已缓存') : console.log('未缓存')}>测试3</div>
+                        <div onClick={this.handleClick4.bind(this) === this.handleClick3.bind(this) ? console.log('已缓存') : console.log('未缓存')}>测试4</div>
+                    </div>
+                )
+            }
+        } 
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+</html>
