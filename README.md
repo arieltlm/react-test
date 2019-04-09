@@ -29,4 +29,8 @@ yo react-webpack 项目名
 
 内容就是跟着老师实现的几个小例子，已做保存；
 
+* comment-app
+> 2019-04-03
+
+此实例来自于[react.js教程]http://huziketang.mangojuice.top/books/react/lesson14练习
 
