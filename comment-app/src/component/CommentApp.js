@@ -7,10 +7,19 @@ export default class CommentApp extends Component {
     constructor(props) {
         super(props);
         this.state={
-            comments: []
+            comments: [],
         }
     }
-
+    componentWillMount() {
+        this._loadComments();
+    }
+    _saveComments(comments) {
+        localStorage.setItem('comments', JSON.stringify(comments))
+    }
+    _loadComments() {
+        const comments = localStorage.getItem('comments');
+        comments && this.setState({comments: JSON.parse(comments)})
+    }
     handleSubmit = (comment) => {
         if (!comment) return
         if (!comment.username) return alert('请输入用户名')
@@ -22,13 +31,20 @@ export default class CommentApp extends Component {
         const {comments} = this.state;
         comments.push(comment);
         this.setState({comments})
+        this._saveComments(comments);
+    }
+    handleDelete = (index) => {
+        const {comments} = this.state;
+        comments.splice(index,1);
+        this.setState({comments});
+        this._saveComments(comments);
     }
     render() {
         const {comments} = this.state;
         return (
             <div className="wrapper">
                 <CommentInput handleSubmit={this.handleSubmit}/>
-                {comments.length > 0 && <CommentList comments={comments}/>}
+                {comments.length > 0 && <CommentList comments={comments} handleDelete={this.handleDelete}/>}
             </div>
         )
     }
