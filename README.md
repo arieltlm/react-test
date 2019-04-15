@@ -32,11 +32,18 @@ yo react-webpack 项目名
 * comment-app
 > 2019-04-03
 
-此实例来自于[react.js教程]http://huziketang.mangojuice.top/books/react/lesson14练习
+此实例来自于[React.js 小书教程]http://huziketang.mangojuice.top/books/react/lesson14练习
 
 * comment-app
 > 2019-04-15
 
-此实例来自于[react.js教程]http://huziketang.mangojuice.top/books/react/lesson44练习
+此实例来自于[React.js 小书教程]http://huziketang.mangojuice.top/books/react/lesson44练习
 
 结合react-redux分Dumb和Smart组件实现的评论组件
+
+* make-react-redux-app:
+> 2019-04-15
+
+此实例来自于[React.js 小书教程]http://huziketang.mangojuice.top/books/react/lesson36练习
+
+动手实现redux-react
