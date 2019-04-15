@@ -1,45 +1,34 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import wrapWithLoadData from './wrapWithLoadData';
 
-class CommentInput extends Component {
+export default class CommentInput extends Component {
+    static propTypes = {
+        username: PropTypes.any,
+        handleSubmit: PropTypes.func,
+        onUserNameInputBlur: PropTypes.func
+    }
+    static defaultProps = {
+        username: ''
+    }
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            username: props.username,
             content: ''
         }
-    }
-    componentWillMount() {
-        this._loadUserName();
     }
     componentDidMount() {
         this.textComment.focus();
     }
-    _saveUserName(username) {
-        localStorage.setItem('username', username)
-    }
-    _loadUserName() {
-        const {username} = localStorage;
-        username && this.setState({username})
-    }
     handleChange = (param) => (e) => {
-        // if(flag === 1) {
-        //     this.setState({
-        //         username: e.target.value
-        //     })
-        // } else {
-        //     this.setState({
-        //         content: e.target.value
-        //     })
-        // }
-
         this.setState({
             [param]: e.target.value
         })
     }
     handleSaveUserName = (e) => {
-        this._saveUserName(e.target.value)
+        if(this.props.onUserNameInputBlur) {
+            this.props.onUserNameInputBlur(e.target.value)
+        }
     }
     handleSubmit = () => {
         const {username, content} = this.state;
@@ -63,7 +52,6 @@ class CommentInput extends Component {
                         <input 
                         value={username}
                         onBlur={this.handleSaveUserName}
-                        // onChange={this.handleChange(1)}/>
                         onChange={this.handleChange('username')}/>
                     </div>
                 </div>
@@ -74,7 +62,6 @@ class CommentInput extends Component {
                             ref={(textComment) => this.textComment = textComment}
                             value={content}
                             onKeyPress={this.handleKeySubmit}
-                            // onChange={this.handleChange(2)}/>
                             onChange={this.handleChange('content')}/>
                     </div>
                 </div>
@@ -88,9 +75,3 @@ class CommentInput extends Component {
     }
 }
 
-CommentInput.propTypes = {
-    handleSubmit: PropTypes.func
-}
-
-CommentInput = wrapWithLoadData(CommentInput, 'username')
-export default CommentInput

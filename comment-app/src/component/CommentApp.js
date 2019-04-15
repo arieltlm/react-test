@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 
 import CommentInput from "./CommentInput";
 import CommentList from "./CommentList";
+import WordAdder from "./PureComponentTest";
 
-export default class CommentApp extends Component {
+import wrapWithLoadData from './wrapWithLoadData'
+
+class CommentApp extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -45,7 +48,11 @@ export default class CommentApp extends Component {
             <div className="wrapper">
                 <CommentInput handleSubmit={this.handleSubmit}/>
                 {comments.length > 0 && <CommentList comments={comments} handleDelete={this.handleDelete}/>}
+                <WordAdder />
             </div>
         )
     }
 }
+
+CommentApp = wrapWithLoadData(CommentApp, 'comments')
+export default CommentApp
