@@ -34,7 +34,11 @@ yo react-webpack 项目名
 
 此实例来自于[React.js 小书教程]http://huziketang.mangojuice.top/books/react/lesson14练习
 
-* comment-app
+    增加testBox：
+    * 1、PureComponent
+    * 2、Context
+
+* comment-app2
 > 2019-04-15
 
 此实例来自于[React.js 小书教程]http://huziketang.mangojuice.top/books/react/lesson44练习

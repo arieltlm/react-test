@@ -5,7 +5,7 @@ class ListOfWords extends React.PureComponent {
     }
 }
 
-class WordAdder extends React.Component {
+class WordAdder extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,10 +23,10 @@ class WordAdder extends React.Component {
     render() {
 
         return (
-            <div>
+            <div style={{margin: 100}}>
                 <button onClick={this.handleClick}>click</button>
-                <ListOfWords words={this.state.words} />
-                <div>{this.state.words.join(',')}</div>
+                <h4>调用继承PureComponent组件的数组push：</h4><ListOfWords words={this.state.words} />
+                <h4>本组件的数组push:</h4><div>{this.state.words.join(',')}</div>
             </div>
         );
     }

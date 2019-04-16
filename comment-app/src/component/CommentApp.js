@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import CommentInput from "./CommentInput";
 import CommentList from "./CommentList";
-import WordAdder from "./PureComponentTest";
+
 
 import wrapWithLoadData from './wrapWithLoadData'
 
@@ -48,7 +48,6 @@ class CommentApp extends Component {
             <div className="wrapper">
                 <CommentInput handleSubmit={this.handleSubmit}/>
                 {comments.length > 0 && <CommentList comments={comments} handleDelete={this.handleDelete}/>}
-                <WordAdder />
             </div>
         )
     }
