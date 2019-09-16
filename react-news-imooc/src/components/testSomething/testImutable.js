@@ -53,14 +53,14 @@ export default function() {
             console.log('immutable对象的filter执行' + x);
             return x % 2;
         }).map(x => x * x);
-    console.log(oddSquares.get(1)); // 执行8次
+    console.log(oddSquares.get(1)); // 执行3次
 
     var jsSquares = [1,2,3,4,5,6,7,8]
         .filter(x => {
             console.log('原生数组的filter执行' + x);
             return x % 2;
         }).map(x => x * x);
-    console.log(jsSquares[1]); // 执行3次
+    console.log(jsSquares[1]); // 执行8次
 
 
     // fromJS和toJS会深度转换数据，随之带来的开销较大，尽可能避免使用，单层数据转换使用Map()和List()
