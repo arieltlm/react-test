@@ -1,5 +1,8 @@
 import React from 'react';
 
+import CyclicRollList from '../cyclic-roll-test/app/index'
+import CyclicRollSimpleList from '../cyclic-roll-simple/index'
+
 // const Home = (props) => {
 //     console.log(props.match);
 //     return (
@@ -15,8 +18,10 @@ class Page3 extends React.Component {
     render () {
         console.log(this.props.match);
         return (
-            <div>
+            <div style={{height:'90%'}}>
                 <p>this is Page3</p>
+                <CyclicRollList />
+                <CyclicRollSimpleList />
             </div>
         )
     }

@@ -18,7 +18,7 @@ import './style.css';
 
 ReactDOM.render(
     <Router basename="/">
-        <div>
+        <div className="router-box">
             <div className="nav-box">
                 <ul>
                     <li>
@@ -43,6 +43,6 @@ ReactDOM.render(
             </div>
         </div>
     </Router>,
-    document.getElementById('App')
+    document.getElementById('app')
 )
 

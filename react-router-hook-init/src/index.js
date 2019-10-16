@@ -27,13 +27,13 @@ ReactDOM.render(
               <NavLink to="/home" activeClassName="li-active">home</NavLink>
             </li>
             <li>
-              <NavLink exact to="page1" activeClassName="li-active">page1</NavLink>
+              <NavLink exact to="/page1" activeClassName="li-active">page1</NavLink>
             </li>
             <li>
-              <NavLink exact to="page2" activeClassName="li-active">page2</NavLink>
+              <NavLink exact to="/page2" activeClassName="li-active">page2</NavLink>
             </li>
             <li>
-              <NavLink exact to="useState" activeClassName="li-active">useState test</NavLink>
+              <NavLink exact to="/useState" activeClassName="li-active">useState test</NavLink>
             </li>
           </ul>
         </div>
