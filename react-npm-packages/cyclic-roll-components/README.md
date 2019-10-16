@@ -9,6 +9,9 @@
 ```js
 npm i cyclic-roll
 ```
+## **git:**
+
+[cyclic-roll-components](https://github.com/arieltlm/react-test/tree/master/react-npm-packages/cyclic-roll-components)
 
 ## **使用：**
 
@@ -143,3 +146,4 @@ export default App
 
 
 > 特殊说明： resizeFlag为true传入即容器高度每次发生变化--计算容器内显示列表条数，然后将resizeFlag置为false
+
