@@ -1,6 +1,6 @@
 {
   "name": "cyclic-roll",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "cyclic roll",
   "main": "lib/index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "react"
   ],
   "dependencies": {
-    "eslint": "^6.5.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
