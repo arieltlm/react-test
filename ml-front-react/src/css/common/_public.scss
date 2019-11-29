@@ -14,7 +14,7 @@ body {
   font-size: 14px;
   background-color: $white;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 *,
@@ -342,7 +342,7 @@ dd {
 
 #container {
   @include size(100%, 100%);
-  min-width: 1440px;
+  min-width: 1000px;
   background: repeating-linear-gradient(
       $white244-01,
       $white244-01 5px,
@@ -369,42 +369,10 @@ dd {
       $white244-01 74px
   );
   position: relative;
-  // overflow: hidden;
-  .main-content{
-    @include size(100%, calc(100% - 48px));
-    padding: 0 20px 20px 20px;
-    // overflow: hidden;
-    .button-group{
-      padding: 18px;
-      padding-right:0px;
-      height:68px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      .ant-btn{
-        margin-left:10px;
-      }
-      .ant-btn-group{
-        .ant-btn-icon-only{
-          margin-left:0px;
-        }
-      }
-    }
-    .table-list,.content-box{
-      @include size(100%, calc(100% - 68px));
-      overflow: hidden;
-      min-width: 870px;
-      box-shadow: 2px 2px 3px 2px $dialog-fieldset-border-color;
-    }
-  }
+  overflow: hidden;
 }
 
 .input-group {
   display: table;
   border-collapse: separate;
-}
-.valid-tips{
-  color:$public-text-info;
-  top: -16px;
-  margin-left:60px!important;
 }

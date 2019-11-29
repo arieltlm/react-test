@@ -1,4 +1,3 @@
-const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = require('../project.config')
 
@@ -35,19 +34,12 @@ const baseconfig = {
                 use: [
                     firstloader,
                     'css-loader'
-                ],
-                exclude: /node_modules/
+                ]
             },
             {
                 test: /\.scss$/,
                 include: APP_PATH,
-                use: cssLoaderUse(cssLoaders, true),
-                exclude: /node_modules|src[\\\/]{1}css/
-            },
-            {
-                test: /\.scss$/,
-                use: cssLoaderUse(cssLoaders, false),
-                include: /node_modules|src[\\\/]{1}css/
+                use: cssLoaderUse(cssLoaders)
             },
             {
                 test: /\.less$/,
@@ -57,7 +49,7 @@ const baseconfig = {
                     'css-loader',
                     'postcss-loader',
                     'less-loader'
-                ], false)
+                ])
             }
         ]
     },

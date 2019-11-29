@@ -10,10 +10,7 @@ import { Button } from 'antd'
 import particlesJS from 'particles'
 import './scss/index.scss'
 
-const { 
-    constant: { particles },
-    injection: { projectVersion }
-} = config
+const { constant } = config
 
 class Login extends PureComponent {
     constructor(props){
@@ -21,35 +18,31 @@ class Login extends PureComponent {
         
         this.state = {
             errorMsg: '',
+            userType: constant.userTypes[1]
         }
     }
 
     componentDidMount() {
         // 用户名获得焦点11
         this.username.focus()
-        particlesJS('particles-js', particles)
+        particlesJS('particles-js', constant.particles)
     
         const { projectInit } = this.props
         projectInit()
-        
-        window.addEventListener('resize', () => {
-            console.log('log')
-        }, false)
-
-        window.onkeydown = (e) => {
-            if (e.keyCode === 13) {
-                this.login()
-            }
-        }
     }
-
+    
     setError = (errorMsg) => {
         this.setState({ errorMsg })
     }
     
+    checkedChange = (userType) => {
+        this.setState({ userType })
+    }
+
     login = () => {
         const username = this.username.value.trim()
-        const password = this.pwd.value.trim()
+        const pwd = this.pwd.value.trim()
+        const { userType } = this.state
         const { login } = this.props
         
         if (username.length === 0) {
@@ -58,7 +51,7 @@ class Login extends PureComponent {
             return
         }
         
-        if (password.length === 0) {
+        if (pwd.length === 0) {
             this.pwd.focus()
             this.setError('请输入密码!')
             return
@@ -68,10 +61,9 @@ class Login extends PureComponent {
         this.setError('')
         
         // 登录检验
-        login({ data: { data: { username, password } } })
+        login({ data: { username, pwd, type: userType } })
             .then((res) => {
                 if (res.statusCode === 200) {
-                    // window.localStorage.setItem('auth', username) //TODO
                     this.gotoUrl(config.url.app.root.path)
                 } else {
                     this.setError(res.message)
@@ -85,11 +77,11 @@ class Login extends PureComponent {
     }
     
     render() {
-        const { errorMsg } = this.state
+        const { userType, errorMsg } = this.state
         const errorCls = classNames('errors', 'pull-right', { invisible: errorMsg.length <= 0 })
         
         return (
-            <div styleName="login-login">
+            <div className="login-login">
                 <div id="particles-js" />
                 <div className="login-box-main">
                     <div className="input-group">
@@ -110,7 +102,7 @@ class Login extends PureComponent {
                             className="login-pwd"
                         />
                         <i className="fa fa-user-o fa-lg" />
-                        <i className="fa fa-bell-o fa-lg pwdico" />
+                        <i className="fa fa-lock fa-lg pwdico" />
                     </div>
                     <div className="login-btn">
                         <div className={errorCls}><i
@@ -118,12 +110,31 @@ class Login extends PureComponent {
                         />{errorMsg}
                         </div>
                         <div className="clearfix" />
-                        <Button type="primary" block onClick={this.login} className="login-button">
-                            登录
+                        <Button type="primary" block onClick={this.login}>
+                                登录
                         </Button>
+                        <div className="clearfix" />
+                        <div className="rolerow">
+                            <div className="pull-left">
+                                <div className="pull-left role"><span
+                                    role="presentation"
+                                    value="0"
+                                    onClick={() => this.checkedChange('0')}
+                                    className={classNames({ checked: userType === '0' })}
+                                />用户
+                                </div>
+                                <div className="pull-left role"><span
+                                    role="presentation"
+                                    value="1"
+                                    data-id="2"
+                                    onClick={() => this.checkedChange('1')}
+                                    className={classNames({ checked: userType === '1' })}
+                                />管理员
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="version-sec">{projectVersion}</div>
             </div>
         )
     }

@@ -1,6 +1,5 @@
-$font-path: "fonts" !default;
-$font-family: "siyuan", "Microsoft YaHei", "SimSun", "Roboto-Regular",
-  "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+$font-path:        "fonts" !default;
+$font-family: "siyuan", "Microsoft YaHei", "SimSun", "Roboto-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
 $gray-bb: #bbbbbb;
 $gray-cc: #cccccc;
 $gray-e6: #e6e6e6;
@@ -12,52 +11,25 @@ $gray-77: #777777;
 $gray-f7: #f7f7f7;
 $gray-97: #979797;
 $gray-99: #999999;
-$gray-f6: #f6f6f6;
 $gray-e8: #e8e8e8;
-$gray-33: #333333;
-$gray-aa: #aaaaaa;
-$gray-239: rgb(239, 239, 239);
-$gray-025: rgba(0, 0, 0, 0.25);
-$gray-050: rgba(0, 0, 0, 0.5);
-$gray-065: rgba(0, 0, 0, 0.65);
-$gray-208: rgb(208, 208, 208);
-$gray-178: rgba(178, 191, 202, 0.5);
-$gray-005: rgba(0, 0, 0, 0.5);
-$gray-c7: #c7d0df;
 $gray-de: #dee3eb;
 $gray-dd: #dddddd;
 $gray-ee: #eeeeee;
 $gray-e0: #e0e0e0;
-$gray-fa: #fafafa;
-$gray-f0: #f0f0f0;
 $blue-d3: #d3e6f0;
 $blue-84: #84d1f7;
 $blue-8b: #8bcdf6;
 $blue-04: #043b56;
 $blue-18: #1890ff;
-$blue-40: #40a9ff;
-$blue-51: rgb(51, 122, 183);
-$blue-409: rgb(40, 96, 144);
-$blue-498: #498cff;
-$blue-dbe: #dbe9fe;
-
-$blue-d5d: #d5deee;
-$blue-d9e: #d9e8fc;
-$blue-e6f: #e6f0fc;
-$blue-c5c: #c5ccda;
-$blue-556: #55627f;
 $yellow-d1: #d1cfcf;
 $black: #000000;
 $black-02: rgba(0, 0, 0, 0.2);
 $white: #ffffff;
 $white244-01: rgba(244, 244, 244, 0.1);
-$green: green;
+$green: #00c76c;
 $red: #eb5352;
-$red-210: rgb(210, 0, 100);
 $errorred: #e0345a;
-$disabled: #a6a6a6;
 $chief_bg_color: #edf0f3;
-$transparent-color: transparent;
 
 $public-mark-bg: #fcf8e3;
 $public-text-muted: #777;
@@ -80,15 +52,15 @@ $public-bg-warning-hover: #f7ecb5;
 $public-bg-danger: #f2dede;
 $public-bg-danger-hover: #e4b9b9;
 
-$main-normal-color: #2d8cc8;
-$main-active-color: #f08654;
-$main-active-thin-color: #ece1db;
-$main-history-active-color: #81bade;
+$main-normal-color:#2d8cc8;
+$main-active-color:#f08654;
+$main-active-thin-color:#ece1db;
+$main-history-active-color:#81bade;
 $main-blue-color: #2a83ff;
-$main-active-light-color: #f2e3da;
-$main-table-hover-color: #fdf3ee;
+$main-active-light-color:#f2e3da;
+$main-table-hover-color:#fdf3ee;
 
-$login-bg-color: #e5e9f4;
+$login-bg-color: #E5E9F4;
 $login-main-bg-color: #e3e9f4;
 $login-main-border-color: #9ac0f9;
 $login-box-input-focus: #2a83ff;
@@ -100,155 +72,9 @@ $header-active-color: #ffffff;
 $header-active-bgcolor: #1f4071;
 $header-font-color: #6b9bb2;
 
-$main-left-bgcolor: #ebf2f5;
-$main-left-fontcolor: #337ab7;
-$main-border-color: #cee5f0;
-$main-nav-bgcolor: #e2eff6;
-$main-nav-vline-bgcolor: #a3c7d9;
-$main-btn-border-color: #4789b3;
-
-$btn-bg-color: #337ab7;
-$btn-border-color: #2e6da4;
-$btn-bg-active-color: #286090;
-$btn-border-active-color: #204d74;
-
-$breadcrunmb-text-active-color: #777;
-$breadcrunmb-text-color: #1890ff;
-
-$dialog-fieldset-border-color: #dddddd;
-$dialog-label-color: #333;
-
-$global-content-bg: $gray-ee;
-
-$link-nav-border-color-rule-config: #a3c7d9;
-$link-nav-color-rule-config: #1890ff;
-$link-nav-active-color-rule-config: #f08654;
-
-$knowledge-add-popup-form-title-bg: #337ab7;
-$knowledge-add-popup-form-title-color: $white;
-$knowledge-data-table-link-color: #1890ff;
-$knowledge-data-table-link-hover-color: #40a9ff;
-$knowledge-data-table-disabled-color: $gray-99;
-$knowledge-data-table-edit-color: $black;
-$knowledge-conent-data-shadow: $gray-dd;
-
-$rule-config-target-sel-btn-bg-color: #5cb85c;
-$rule-config-target-sel-btn-border-color: #4cae4c;
-$rule-config-mapping-sel-btn-bg-color: #f0ad4e;
-$rule-config-mapping-sel-btn-border-color: #eea236;
-$rule-config-look-box-border-color: #dddee4;
-$rule-config-look-title-text-color: #576989;
-$rule-config-look-title-bg-color: #eff2f9;
-$rule-config-look-subtitle-bg-color: #f5f7fb;
-$rule-config-look-active-text-color: #4b90fb;
-
-$standard-table-box-border-color: $gray-dd;
-$ruleconfig-hover-bg-color: $gray-ee;
-$ruleconfig-table-active-color: #4b90fb;
-$ruleconfig-title-bg-color: #eff2f9;
-$ruleconfig-middle-border-color: #c8d0de;
-$ruleconfig-middle-bg-color: #f5f7fb;
-
-$graph-left-panel-bg: #f7fafe;
-$graph-left-panel-bottom-item-edit-color: #b3b311;
-$graph-left-panel-bottom-item-edited-color: #337ab7;
-$graph-left-panel-bottom-item-calc-color: #65bd35;
-$graph-left-panel-bottom-item-calced-color: #d20064;
-
-$graph-left-btn-start: #77aaff;
-$graph-left-btn-end: #7fc7ff;
-$graph-left-btn-color: #77aaff;
-$graph-left-btn-border-img: linear-gradient(
-  to right,
-  $graph-left-btn-start,
-  $graph-left-btn-end
-);
-$graph-left-btn-hover-color: $white;
-$graph-left-btn-hover-bg: linear-gradient(
-  to right,
-  $graph-left-btn-start,
-  $graph-left-btn-end
-);
-
-$graph-nav-head-bg: #eff2f9;
-$graph-nav-head-border: $gray-dd;
-
-$graph-cxt-menu-item-hover-bg: #0b9bcd;
-$graph-cxt-menu-divider-border: $gray-99;
-$graph-cxt-menu-border: $gray-99;
-
-$graph-cytoscape-navigator-bg: #b7e1ed;
-
-$graph-cy-panzoom-button-border: $gray-99;
-$graph-cy-panzoom-zoom-button-bg: $gray-dd;
-$graph-cy-panzoom-color: $gray-66;
-$graph-cy-panzoom-border: $gray-66;
-$graph-cy-panzoom-slider-bg: $white;
-$graph-cy-panzoom-slider-border: $gray-99;
-
-$graph-cy-panzoom-no-zoom-tick-bg: $gray-66;
-$graph-cy-panzoom-no-zoom-tick-border: $white;
-
-$graph-cy-panzoom-panner-bg: $white;
-$graph-cy-panzoom-panner-border: $gray-99;
-
-$graph-config-panel-bg: #f7fafe;
-$graph-config-panel-content-border: $gray-cc;
-$standard-top-message-color: #576989;
-$standard-top-title-bg-color: #cfd9e8;
-$standard-top-title-number-color: #4cadfc;
-$standard-all-table-not-finish-color: #ef6475;
-$standard-all-table-finished-color: #28b898;
-$standard-page-match-color: #9ec75b;
-$standard-page-dis-match-color: #d49f61;
-$standard-page-tr-dis-match-bg-color: #fdf3d5;
-$standard-page-tr-match-bg-color: #ecfccc;
-$standard-page-td-text-color: rgba(0, 0, 0, 0.65);
-
-$task-scheduling-tip-text-color: #fb8824;
-$task-scheduling-title-text-color: #333333;
-$task-scheduling-modal-active-text-color: #3a7be9;
-$task-scheduling-control-hover-bg-color: #78a2f3;
-$task-scheduling-opetation-info-text-num3-color: #3b8dcc;
-$task-scheduling-opetation-info-text-color: #78a2f3;
-$task-scheduling-mission-console-bg-color: #f7fafe;
-$task-scheduling-toolbox-mission-bg-color: #d7ddec;
-$task-scheduling-toolbox-mission-text-color: #55698a;
-
-$task-scheduling-params-config-oper-panel-bg: #f7fafe;
-$task-scheduling-params-config-oper-panel-shadow: #d3dde9;
-$task-scheduling-params-config-oper-panel-title-bg: #c6d0e8;
-$task-scheduling-params-config-oper-panel-title-color: #55627f;
-$task-scheduling-params-config-oper-panel-btn-item-border: #c3cbd9;
-$task-scheduling-params-config-oper-panel-switchbox-color: $white;
-$task-scheduling-params-config-oper-panel-switchbox-btn-color: #55627f;
-$task-scheduling-params-config-oper-panel-switchbox-btn-bg: #b0e3f1;
-$task-scheduling-params-config-oper-panel-switchbox-btn-active-color: $white;
-$task-scheduling-params-config-oper-panel-switchbox-btn-active-bg: #36a1e7;
-$task-scheduling-params-config-oper-panel-switchbox-btn-active-shadow: $black;
-$task-scheduling-params-config-oper-panel-describforbtn-color: $gray-99;
-$task-scheduling-params-config-oper-panel-describforbtn-icon-color: #d58512;
-$task-scheduling-params-config-content-header-item-color: $black;
-$task-scheduling-params-config-content-header-item-bg: $white;
-$task-scheduling-params-config-content-header-active-item-color: $white;
-$task-scheduling-params-config-content-header-active-item-bg: #498cff;
-
-$task-scheduling-params-config-manual-mode-select-bg: #f7fafe;
-$task-scheduling-params-config-manual-mode-select-item-color: #55627f;
-$task-scheduling-params-config-manual-mode-select-item-border: #e3eaf4;
-$task-scheduling-params-config-manual-mode-select-item-shadow: #f1f5fa;
-$task-scheduling-params-config-manual-mode-select-item-active-color: #498cff;
-$task-scheduling-params-config-manual-mode-select-item-active-border: #498cff;
-
-$task-scheduling-params-config-manual-edit-box-bg: $white;
-$task-scheduling-params-config-manual-edit-header-border: #c3cbd9;
-$task-scheduling-params-config-manual-edit-header-item-color: #55627f;
-$task-scheduling-params-config-manual-edit-header-item-active-color: #3a7be9;
-$task-scheduling-params-config-manual-edit-header-item-active-border: #3a7be9;
-$task-scheduling-params-config-manual-edit-item-title: $gray-33;
-
-$task-scheduling-params-config-auto-edit-box-bg: $white;
-$task-scheduling-params-config-auto-edit-item-header-bg: $gray-cc;
-$task-scheduling-params-config-auto-edit-item-border: $gray-cc;
-$task-scheduling-params-config-auto-edit-item-value-info-border: $gray-aa;
-$task-scheduling-params-config-auto-edit-item-error-color: #f31e1e;
+$main-left-bgcolor:#ebf2f5;
+$main-left-fontcolor:#337ab7;
+$main-border-color:#cee5f0;
+$main-nav-bgcolor:#e2eff6;
+$main-nav-vline-bgcolor:#a3c7d9;
+$main-btn-border-color:#4789b3;

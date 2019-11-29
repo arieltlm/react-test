@@ -87,7 +87,6 @@ function Dialog(props) {
 
     return (
         <Modal
-            destroyOnClose
             className={classNames({ 'dialog-common': true, [infoTypeCls]: dialogType === 'alert' })}
             title={title}
             footer={footerNew}

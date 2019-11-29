@@ -6,7 +6,7 @@
 // 公共js
 import axios from 'axios'
 import { AppContainer, hot } from 'react-hot-loader'
-import React, { useState, useEffect, useRef, useCallback, useContext, useMemo, useReducer } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
@@ -84,6 +84,7 @@ const packageLogInfo = function (OperateCondition, opId) {
         opId
     }
 }
+
 /* eslint-disable */
 const connect = (mapStateToProps, mapDispatchToProps, mergeProps) => component => originalConnect(mapStateToProps, mapDispatchToProps, mergeProps)(withErrorBoundary(component))
 /* eslint-enable */
@@ -91,10 +92,6 @@ const connect = (mapStateToProps, mapDispatchToProps, mergeProps) => component =
 export {
     axios,
     classNames,
-    combineReducers,
-    originalConnect,
-    connect,
-    createSelector,
     ErrorBoundary,
     Helper,
     React,
@@ -105,6 +102,9 @@ export {
     _,
     moment,
     pathToRegExp,
+    combineReducers,
+    connect,
+    createSelector,
     Router,
     Route,
     withRouter,
@@ -117,12 +117,5 @@ export {
     hot,
     noop,
     EmptyComponent,
-    packageLogInfo,
-    useState,
-    useEffect,
-    useRef,
-    useCallback,
-    useContext,
-    useMemo,
-    useReducer
+    packageLogInfo
 }

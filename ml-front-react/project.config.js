@@ -9,13 +9,13 @@ const TerserPlugin = require('terser-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const lan_ip = require('ip').address().toString()//局域网ip
-const ip = '0.0.0.0'
+const ip = require('ip').address().toString()
 
-const port = 4445
+const port = 4444
 const ROOT_PATH = path.resolve(__dirname, './')
 const APP_PATH = path.resolve(ROOT_PATH, 'src')
-const projectEnName = 'shark'
+const projectEnName = 'example'
+const staticFolderName = 'static'
 
 const development = {
     env: { NODE_ENV: JSON.stringify('development') },
@@ -50,20 +50,19 @@ const output = (function () {
     let obj = {
         path: path.join(ROOT_PATH, 'dev'),
         publicPath: '/',
-        filename: `static/scripts/${projectEnName}-[name].js`,
-        // chunkFilename: 'static/scripts/[name].js',
+        filename: `${staticFolderName}/scripts/${projectEnName}-[name].js`,
+        // chunkFilename: '${staticFolderName}/scripts/[name].js',
         // sourceMapFilename: '[file].map',
         // hotUpdateChunkFilename: 'hot/hot-update.js',
         // hotUpdateMainFilename: 'hot/hot-update.json'
     }
     
     if (isProd) {
-        // publicPath使用./时，组件中图片路径会有问题
         obj = {
             path: path.join(ROOT_PATH, 'dist'),
             publicPath: '/',
-            filename: `static/scripts/${projectEnName}-[name]-[chunkhash:10].js`,
-            chunkFilename: `static/scripts/${projectEnName}-[name]-[chunkhash:10].js`
+            filename: `${staticFolderName}/scripts/${projectEnName}-[name]-[chunkhash:10].js`,
+            chunkFilename: `${staticFolderName}/scripts/${projectEnName}-[name]-[chunkhash:10].js`
         }
     }
     
@@ -88,21 +87,14 @@ const jsxLoader = [
     }
 ]
 
-const cssLoaderUse = function (loaders, useCssModules = false) {
+const cssLoaderUse = function (loaders) {
     const defaultOpt = { sourceMap: !isProd }
     return loaders.map((loader) => {
         let options = defaultOpt
         
         if(loader === 'css-loader') {
            // mini-css-extract-plugin能够处理
-            if (useCssModules) {
-                options = {
-                    modules: true,
-                    localIdentName: '[local]__[path][name]_[hash:base64:5]'
-                }
-            } else {
-                options = {}
-            }
+            options = {}
         }
         
         if(loader === 'less-loader') {
@@ -160,7 +152,7 @@ const imgLoader = (function () {
         loader: 'url-loader',
         options: {
             limit: 10000,
-            name: `static/images/[name]-${isProd ? '[hash]' : '[path]'}.[ext]`,
+            name: `${staticFolderName}/images/[name]-${isProd ? '[hash]' : '[path]'}.[ext]`,
             mimetype: item.mimetype
         }
     }))
@@ -180,7 +172,7 @@ const fontLoader = (function () {
         loader: 'url-loader',
         options: {
             limit: 10000,
-            name: 'static/fonts/[name].[ext]',
+            name: `${staticFolderName}/fonts/[name].[ext]`,
             mimetype: item.mimetype
         }
     }))
@@ -191,7 +183,7 @@ const mediaLoader = {
     loader: 'url-loader',
     options: {
         limit: 10000,
-        name: 'static/media/[name].[ext]'
+        name: `${staticFolderName}/media/[name].[ext]`
     }
 }
 
@@ -226,11 +218,11 @@ const optimization = {
 const copyArgs = [
     {
         from: 'src/project-conf.js',
-        to: 'static/scripts/project-conf.js'
+        to: `${staticFolderName}/scripts/project-conf.js`
     },
     {
         from: 'src/images',
-        to: 'static/images'
+        to: `${staticFolderName}/images`
     }
 ]
 
@@ -239,7 +231,7 @@ let plugins = [
     new CopyWebpackPlugin(isProd ? copyArgs : copyArgs.concat([
         {
             from: 'dll/vendor.dll.js',
-            to: 'static/scripts/vendor.dll.js'
+            to: `${staticFolderName}/scripts/vendor.dll.js`
         }
     ])),
     new StyleLintPlugin({
@@ -250,9 +242,9 @@ let plugins = [
     }),
     new HtmlWebpackPlugin({
         template: path.join(APP_PATH, 'index.html'),
-        title: 'CONA',
-        dll: isProd ? '' : '<script src="/static/scripts/vendor.dll.js"></script>',
-        description: 'CONA',
+        title: 'example-%lastDeployTime%',
+        dll: isProd ? '' : '<script src="/'+staticFolderName+'/scripts/vendor.dll.js"></script>',
+        description: '这是一个示例工程',
         filename: 'index.html',
         favicon: 'src/images/favicon.ico',
         inject: true,
@@ -266,8 +258,8 @@ let plugins = [
 if (isProd) {
     plugins = plugins.concat([
         new MiniCssExtractPlugin({
-            filename: 'static/css/[name]-[chunkhash:10].css',
-            chunkFilename: 'static/css/[id]-[chunkhash:10].css'
+            filename: `${staticFolderName}/css/[name]-[chunkhash:10].css`,
+            chunkFilename: `${staticFolderName}/css/[id]-[chunkhash:10].css`
         })
     ])
     
@@ -289,38 +281,18 @@ if (isProd) {
 }
 
 const proxies = [{
-    target: `http://${lan_ip}`,
+    target: `http://${ip}`,
     proxyPort: 3003,
     headers: {
     },
     paths: ['/api']
-},{
-    // target: 'http://ws02.mlamp.cn',
-    target: 'http://172.21.1.185',
-    // proxyPort: 19200,
-    // proxyPort: 16124,
-    proxyPort: 9530,
-    headers: {
-        host: ''
-    },
-    paths: ['/cona-web', '/relation']
-},
-{
-    target: 'http://172.16.1.35',
-    proxyPort: 9327,
-    headers: {
-        host: '',
-    },
-    paths: ['/dataasset-web']
-},
-]
+}]
 
 const devServer = {
     contentBase: path.join(ROOT_PATH, 'dev'),
     publicPath: '/',
     historyApiFallback: true,
     // clientLogLevel: 'none',
-    disableHostCheck: true,
     host: ip,
     port,
     open: true,

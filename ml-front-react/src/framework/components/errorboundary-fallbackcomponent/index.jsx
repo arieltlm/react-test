@@ -13,12 +13,13 @@ const ErrorBoundaryFallbackComponent = function ({ componentStack, error }) {
     const showError = function () {
         Modal.error({
             title: '崩溃信息',
-            content: `错误：${error.toString()}; 原因:${componentStack}`
+            content: (<div>错误：${error.toString()};<br /> 原因:${componentStack}</div>),
+            width: '80%'
         })
     }
     
     return (
-        <div styleName="errorboundary-common">
+        <div className="errorboundary-common">
             <div className="error-pic" role="presentation" onClick={showError} />
             <div className="text-center error-text">抱歉，您访问的页面崩溃了！</div>
         </div>

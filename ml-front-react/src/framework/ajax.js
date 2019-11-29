@@ -4,7 +4,6 @@
  * 日期：2019-05-30
  */
 import axios from 'axios'
-import qs from 'qs'
 import { packageLogInfo } from './Util'
 
 // ajax 统一配置
@@ -12,8 +11,7 @@ const instance = axios.create({
     method: 'get',
     baseURL: '',
     timeout: 0,
-    responseType: 'json',
-    paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
+    responseType: 'json'
 })
 
 instance.interceptors.request.use(
@@ -31,8 +29,6 @@ const handleWithParameter = function (url, {
     instance.defaults.headers = {
         ...instance.defaults.headers,
         ...headers,
-        Location,
-        'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': contentType
     }
     

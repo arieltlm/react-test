@@ -160,10 +160,7 @@ const createActions = function (actionMap) {
                         ...config
                     }
                 ).then((res) => {
-                    if (config.hasLoading){
-                        loading.hide()
-                    }
-                    
+                    loading.hide()
                     const { statusCode, message } = res.data
                     const params = res.config.params === undefined ? res.config.data : res.config.params
                     const dt = qs.parse(params)
@@ -187,22 +184,13 @@ const createActions = function (actionMap) {
                         
                         return res.data
                     }
-
-                    // 302时默认跳转到指定页面，接口要求返回绝对地址
-                    if (statusCode === 302) {
-                        window.location.replace(res.data.data)
-                        return res.data
-                    }
                     
                     if (config.handleError) {
-                        if (!config.url.endsWith('/getUserInfo')) {
-                            mesAntd.error(message, 2, () => {
-                                // window.location.replace(window.location.origin)
-                            })
-                        } 
-                        // else {
-                        //     mesAntd.error(message)
-                        // }
+                        if (statusCode === 401 && !config.url.endsWith('/login')) {
+                            window.location.replace(window.location.origin)
+                        } else {
+                            mesAntd.error(message)
+                        }
                     }
                     
                     dispatch(createAction(`${config.actionType}_ERROR`)(message))

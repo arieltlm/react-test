@@ -13,46 +13,35 @@ import {
     Switch
 } from 'framework/Util'
 import config from 'conf'
-import dialog from 'dialog'
-import Header from '../../container/header'
-
-const { url: { app } } = config
+import Header from '../header'
 
 class App extends PureComponent {
     constructor(props){
         super(props)
         this.state = {
-            loadedUserInfo: false,
+            loadedUserInfo: false
         }
     }
 
     componentDidMount() {
         const { getUserInfo } = this.props
         getUserInfo()
-            .then((res) => {
-                if (res.statusCode === 200){
-                    this.setState({
-                        loadedUserInfo: true,
-                    })
-                } else if (res.statusCode !== 302){
-                    dialog.alert({
-                        title: '消息',
-                        content: <span>{res.message}</span>,
-                        ok: () => {
-                            window.location.reload()
-                        }
-                    })
-                } 
+            .then(() => {
+                this.setState({
+                    loadedUserInfo: true
+                })
             })
     }
 
     render() {
         const { match: { url }, username, logout } = this.props
         const { loadedUserInfo } = this.state
+        
         if (loadedUserInfo) {
-            // if (username.length === 0) {
-            //     return <Redirect to={config.url.login.path} />
-            // }
+            if (username.length === 0) {
+                return <Redirect to={config.url.login.path} />
+            }
+
             return (
                 <div id="chief">
                     <Header
@@ -60,22 +49,15 @@ class App extends PureComponent {
                         logout={logout}
                     />
                     <Switch>
-                        <Route path={app.graph.path} component={lazyload(import('@/graph/containers/main'))} />
-                        <Route path={app.targetTable.path} component={lazyload(import('@/target-table/components/main'))} />
-                        <Route path={app.originalDataSource.path} component={lazyload(import('@/origin-table/components/main'))} />
-                        <Route path={app.verify.path} component={lazyload(import('@/verification/container/main'))} />
-                        <Route path={app.knowledge.path} component={lazyload(import('@/knowledge/container/main'))} />
-                        <Route path={app.ruleManage.path} component={lazyload(import('@/rule-manage/container/main'))} />
-                        <Route path={app.ruleConfig.path} component={lazyload(import('@/rule-config/container/main'))} />
-                        <Route path={app.mapping.path} component={lazyload(import('@/mapping/container/main'))} />
-                        {/* <Route path={app.standard.path} component={lazyload(import('@/standard/components/main'))} /> */}
-                        <Route path={app.taskScheduling.path} component={lazyload(import('@/task-scheduling/container/main'))} />
-                        <Route path={url} exact render={() => <Redirect to={app.graph.path} />} />
+                        <Route path={config.url.app.todos.path} component={lazyload(import('@/todos/components/main'))} />
+                        <Route path={config.url.app.others.path} component={lazyload(import('@/others/main'))} />
+                        <Route path={url} exact render={() => <Redirect to={config.url.app.todos.path} />} />
                     </Switch>
                 </div>
             )
         }
-        return <div />
+
+        return null
     }
 }
 
@@ -83,7 +65,7 @@ App.propTypes = {
     match: PropTypes.object.isRequired,
     getUserInfo: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
-    username: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired
 }
 
 export default App

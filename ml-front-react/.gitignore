@@ -1,5 +1,7 @@
 .sass-cache
 .idea
+node_modules
+dist
 package-lock.json
 *.log
 *-compiled.js
@@ -10,7 +12,6 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.history
 
 # Optional eslint cache
 .eslintcache

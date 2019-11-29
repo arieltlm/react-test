@@ -9,6 +9,7 @@
 
 /* eslint-disable */
  const pJS = function(tag_id, params){
+
   var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
 
   /* particles.js variables with default values */

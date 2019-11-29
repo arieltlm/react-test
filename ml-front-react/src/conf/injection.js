@@ -6,4 +6,4 @@
 
 /* eslint-disable no-undef */
 export const host = domain
-export const projectVersion = 'v3.2.10'
+export const projectVersion = '1.0.0'

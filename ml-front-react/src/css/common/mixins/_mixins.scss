@@ -55,26 +55,3 @@
     }
   }
 }
-
-@mixin keyframes($name) {
-  @keyframes #{$name} {
-    @content;
-  }
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-o-keyframes #{$name} {
-    @content;
-  }
-}
-
-
-@mixin animation($val) {
-	animation:$val;
-	-webkit-animation:$val;
-	-moz-animation:$val;
-	-ms-animation:$val;
-}

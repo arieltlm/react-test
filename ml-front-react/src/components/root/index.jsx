@@ -13,8 +13,8 @@ import {
     hot,
     ErrorBoundary
 } from 'framework/Util'
-import { ConfigProvider } from 'antd'
-import zhCN from 'antd/es/locale/zh_CN'
+import { LocaleProvider } from 'antd'
+import zhCN from 'antd/lib/locale-provider/zh_CN'
 import config from 'conf'
 import Dialog from 'framework/dialog/container'
 import Loading from 'framework/loading/container'
@@ -25,12 +25,12 @@ const NotFindView = lazyload(import('@/components/error'))
 
 const RootRoutesView = function (){
     return (
-        <ConfigProvider locale={zhCN}>
+        <LocaleProvider locale={zhCN}>
             <ErrorBoundary>
                 <div className="containerchild">
                     <Switch>
-                        <Route path={url.root} exact render={() => <Redirect to={url.app.root.path} />} />
-                        {/* <Route path={url.login.path} component={lazyload(import('@/login/container'))} /> */}
+                        <Route path={url.root} exact render={() => <Redirect to={url.login.path} />} />
+                        <Route path={url.login.path} component={lazyload(import('@/login/container'))} />
                         <Route path={url.app.root.path} component={MainAppView} />
                         <Route component={NotFindView} />
                     </Switch>
@@ -38,7 +38,7 @@ const RootRoutesView = function (){
                     <Loading />
                 </div>
             </ErrorBoundary>
-        </ConfigProvider>
+        </LocaleProvider>
     )
 }
 

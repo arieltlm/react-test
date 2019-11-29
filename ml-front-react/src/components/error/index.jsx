@@ -9,7 +9,7 @@ function Error() {
     return (
         <div id="chief">
             <Header />
-            <div styleName="main404">
+            <div className="main404">
                 <h1>not found</h1>
                 <h2>does not exist. time to go outside.</h2>
                 <div><a href="#/">返回</a></div>

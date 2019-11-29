@@ -5,26 +5,24 @@
  */
 import { handleActions } from 'framework'
 import { Immutable } from 'framework/Util'
+import config from 'conf'
 import * as actionTypes from '../actions/actionTypes'
 
+const { constant } = config
 
 const inintialState = Immutable.fromJS({
     username: '',
-    resources: [],
+    userType: constant.userTypes[1]
 })
 
 const loginReducer = handleActions({
     [actionTypes.SET_USER_INFO_LOGIN]: {
         success: (state, action) => {
-            const { username, resources } = action.payload
+            const { username, userType } = action.payload
             return state.set('username', username)
-                .set('resources', Immutable.fromJS(resources))
+                .set('userType', constant.userTypes[parseInt(userType, 10)])
         }
-    },
-    [actionTypes.SET_HEADER_INFO_LOGIN](state, action) {
-        return state.set('resources', Immutable.fromJS(action.payload.resources))
     }
 }, inintialState)
-
 
 export default loginReducer

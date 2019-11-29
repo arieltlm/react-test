@@ -13,10 +13,10 @@ const indexHTML = fs.readFileSync(indexHTMLPath, 'utf-8')
 fs.writeFileSync(indexHTMLPath, indexHTML.replace('%lastDeployTime%', `${moment().format('YYYY-MM-DD HH:mm:ss')}`), 'utf-8')
 
 const host = 'root@172.16.2.197'
-const clearArr = ['rm -rf /usr/local/nginx/html/cona-new', 'mkdir /usr/local/nginx/html/cona-new']
+const clearArr = ['rm -rf /usr/local/nginx/html/example', 'mkdir /usr/local/nginx/html/example']
 const cmdArr = [
     `ssh ${host} '${clearArr.join(';')}'`,
-    `scp -r ${path.join(__dirname.replace(/build$/, 'dist'), '*')} ${host}:/usr/local/nginx/html/cona-new`
+    `scp -r ${path.join(__dirname.replace(/build$/, 'dist'), '*')} ${host}:/usr/local/nginx/html/example`
 ]
 const cmd = cmdArr.join(';')
 

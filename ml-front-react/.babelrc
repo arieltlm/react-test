@@ -44,17 +44,6 @@
     "@babel/plugin-proposal-do-expressions",
     "@babel/plugin-proposal-function-bind",
     "react-hot-loader/babel",
-    "react-loadable/babel",
-    ["react-css-modules", {
-      "filetypes": {
-        ".scss": {
-          "syntax": "postcss-scss",
-          "plugins": [
-            "postcss-nested"
-          ]
-        }
-      },
-      "generateScopedName": "[local]__[path][name]_[hash:base64:5]"
-    }]
+    "react-loadable/babel"
   ]
 }

@@ -5,15 +5,16 @@
  */
 
 import React from 'react'
+import pathToRegExp from 'path-to-regexp'
+import url from '@/conf/url'
 // import PropTypes from 'prop-types'
 
+const { login, app } = url
+
 class ReactComponentBase extends React.PureComponent {
-    constructor(props) {
-        super(props)
-        
-        this.forbitBlackSpace = this.forbitBlackSpace.bind(this)
-        this.forbitDefaultEvent = this.forbitDefaultEvent.bind(this)
-        this.stateChange = this.stateChange.bind(this)
+    constructor(props, context) {
+        super(props, context)
+        this.setDocTitle()
     }
     
     // 组件装载顺序
@@ -84,7 +85,39 @@ class ReactComponentBase extends React.PureComponent {
         this.setState = function () {}
     }
     
-    forbitBlackSpace(e) {
+    setDocTitle = () => {
+        let docTitle = '测试工程'
+        const pathname = window.location.hash.slice(1)
+        
+        if (pathname === login.path) {
+            window.document.title = `${docTitle}-${login.title}`
+            return
+        }
+    
+        // 受限页面
+        for (const moduleName in app) {
+            if ({}.hasOwnProperty.call(app, moduleName)){
+                const { path, title } = app[moduleName]
+                const keys = []
+                const toPath = pathToRegExp(path, keys)
+            
+                // 没有可变参数
+                if (keys.length === 0 && pathname === path) {
+                    docTitle = `${docTitle}-${title}`
+                    break
+                } else if (toPath.test(pathname)){
+                    docTitle = `${docTitle}-${title}`
+                    break
+                } else {
+                    // 没有匹配的路径
+                }
+            }
+        }
+        
+        window.document.title = docTitle
+    }
+    
+    forbitBlackSpace = (e) => {
         if (e.which === 32) {
             e.preventDefault()
         }
@@ -92,14 +125,14 @@ class ReactComponentBase extends React.PureComponent {
         return this
     }
     
-    forbitDefaultEvent(e) {
+    forbitDefaultEvent = (e) => {
         e.preventDefault()
         e.stopPropagation()
         
         return this
     }
     
-    stateChange(key, value, fnCb = () => {}) {
+    stateChange = (key, value, fnCb = () => {}) => {
         if (typeof key === 'string') {
             this.setState({
                 [key]: value
@@ -115,9 +148,5 @@ class ReactComponentBase extends React.PureComponent {
         return null
     }
 }
-
-// ReactComponentBase.propTypes = {
-//     router: PropTypes.object.isRequired
-// }
 
 export default ReactComponentBase

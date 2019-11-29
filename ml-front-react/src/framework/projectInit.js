@@ -34,7 +34,7 @@ const projectInit = function (oContainer, callback = () => {}) {
         const { CancelToken } = axios
         window.projectConf.source = CancelToken.source()
     })
-
+    
     ReactDOM.render(
         <Provider store={store}>
             <Router hashHistory={history} getUserConfirmation={getConfirmation}>
