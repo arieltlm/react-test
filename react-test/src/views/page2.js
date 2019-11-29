@@ -5,6 +5,19 @@ import {
 } from 'react-router-dom';
 const Page2 = ({match}) => {
     console.log(match);
+
+    // const obj = {
+    //     foo: {
+    //       bar: {
+    //         baz: 42,
+    //       },
+    //     },
+    //   }
+
+    //   const baz = obj?.foo?.bar?.baz
+    //   const safe = obj?.qux?.baz
+
+      
     return (
         <div>
             <h2>this is page2</h2>

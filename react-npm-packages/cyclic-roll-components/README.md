@@ -1,4 +1,4 @@
-# cyclic-roll
+# react-cyclic-roll
 ----
 
 ## **功能描述：**
@@ -7,17 +7,17 @@
 
 ## **安装：**
 ```js
-npm i cyclic-roll
+npm i react-cyclic-roll
 ```
 ## **git:**
 
-[cyclic-roll-components](https://github.com/arieltlm/react-test/tree/master/react-npm-packages/cyclic-roll-components)
+[react-cyclic-roll-components](https://github.com/arieltlm/react-test/tree/master/react-npm-packages/cyclic-roll-components)
 
 ## **使用：**
 
 ```js
 // cyclic-roll-list.js
-import CyclicRoll from 'cyclic-roll'
+import CyclicRoll from 'react-cyclic-roll'
 
 // 列表每条的显示形式
 function ListItem(){

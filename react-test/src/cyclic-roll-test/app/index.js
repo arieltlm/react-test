@@ -2,6 +2,7 @@
 import React from 'react';
 import CyclicRollList from '../list-item/index'
 
+
 import './scss/index.scss'
 
 

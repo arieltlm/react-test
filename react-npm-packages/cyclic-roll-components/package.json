@@ -1,7 +1,7 @@
 {
-  "name": "cyclic-roll",
+  "name": "react-cyclic-roll",
   "version": "1.0.6",
-  "description": "cyclic roll",
+  "description": "react-cyclic roll",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

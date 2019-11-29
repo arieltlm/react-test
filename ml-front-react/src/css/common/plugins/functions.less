@@ -1,0 +1,143 @@
+// arrow --------------------------------------------------
+.mixin-arrow-def(@width-top: 8px;
+@width-right: 8px;
+@width-bottom: 8px;
+@width-left: 8px;
+
+) {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: @width-top @width-right @width-bottom @width-left;
+    border-style: solid;
+    border-color: transparent;
+    z-index: 10;
+
+    &:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: (@width-top - 1px) (@width-right - 1px) (@width-bottom - 1px) (@width-left - 1px);
+        border-style: solid;
+        border-color: transparent;
+        content: '';
+    }
+}
+
+.mixin-arrow-direction(top;
+@width-top: 8px;
+@width-right: 8px;
+@width-bottom: 8px;
+@width-left: 8px;
+@border-color: rgba(0, 0, 0, 0.1);
+
+@color: #fff) {
+    top: -@width-bottom;
+    left: 50%;
+    margin-left: -@width-bottom;
+    border-top-width: 0;
+    border-bottom-color: @border-color;
+
+    &:after {
+        top: 1px;
+        margin-left: -(@width-bottom - 1px);
+        border-top-width: 0;
+        border-bottom-color: @color;
+        content: ' ';
+    }
+}
+
+.mixin-arrow-direction(bottom;
+@width-top: 8px;
+@width-right: 8px;
+@width-bottom: 8px;
+@width-left: 8px;
+@border-color: rgba(0, 0, 0, 0.1);
+
+@color: #fff) {
+    bottom: -@width-top;
+    left: 50%;
+    margin-left: -@width-top;
+    border-bottom-width: 0;
+    border-top-color: @border-color;
+
+    &:after {
+        bottom: 1px;
+        margin-left: -(@width-top - 1px);
+        border-bottom-width: 0;
+        border-top-color: @color;
+        content: ' ';
+    }
+}
+
+.mixin-arrow-direction(left;
+@width-top: 8px;
+@width-right: 8px;
+@width-bottom: 8px;
+@width-left: 8px;
+@border-color: rgba(0, 0, 0, 0.1);
+
+@color: #fff) {
+    top: 50%;
+    margin-top: -@width-top;
+    margin-left: -@width-right;
+    border-left-width: 0;
+    border-right-color: @border-color;
+
+    &:after {
+        top: -(@width-right - 1px);
+        left: 1px;
+        border-left-width: 0;
+        border-right-color: @color;
+        content: ' ';
+    }
+}
+
+.mixin-arrow-direction(right;
+@width-top: 8px;
+@width-right: 8px;
+@width-bottom: 8px;
+@width-left: 8px;
+@border-color: rgba(0, 0, 0, 0.1);
+
+@color: #fff) {
+    right: -@width-left;
+    top: 50%;
+    margin-top: -@width-top;
+    border-right-width: 0;
+    border-left-color: @border-color;
+
+    &:after {
+        top: -(@width-top - 1px);
+        right: 1px;
+        border-right-width: 0;
+        border-left-color: @color;
+        content: ' ';
+    }
+}
+
+// 箭头使用这个mixin来定义即可
+.mixin-arrow(@direction: top;
+@width-top: 8px;
+@width-right: 8px;
+@width-bottom: 8px;
+@width-left: 8px;
+@border-color: rgba(0, 0, 0, 0.1);
+@color: #fff;
+
+) {
+    .mixin-arrow-def(@width-top;
+    @width-right;
+    @width-bottom;
+    @width-left;
+    );
+    .mixin-arrow-direction(@direction;
+    @width-top;
+    @width-right;
+    @width-bottom;
+    @width-left;
+    @border-color;
+    @color)
+}
