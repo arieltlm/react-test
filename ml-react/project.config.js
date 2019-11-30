@@ -11,7 +11,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const ip = require('ip').address().toString()
 
-const port = 4444
+const port = 3334
 const ROOT_PATH = path.resolve(__dirname, './')
 const APP_PATH = path.resolve(ROOT_PATH, 'src')
 const projectEnName = 'example'

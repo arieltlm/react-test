@@ -36,6 +36,10 @@ const url = {
         broadcast: {
             title: '广播',
             path: '/app/others/broadcast'
+        },
+        echartsPage:{
+            title: 'echarts',
+            path: '/app/echarts'
         }
     }
 }

@@ -19,18 +19,18 @@ class App extends PureComponent {
     constructor(props){
         super(props)
         this.state = {
-            loadedUserInfo: false
+            loadedUserInfo: true
         }
     }
 
     componentDidMount() {
-        const { getUserInfo } = this.props
-        getUserInfo()
-            .then(() => {
-                this.setState({
-                    loadedUserInfo: true
-                })
-            })
+        // const { getUserInfo } = this.props
+        // getUserInfo()
+        //     .then(() => {
+        //         this.setState({
+        //             loadedUserInfo: true
+        //         })
+        //     })
     }
 
     render() {
@@ -38,9 +38,9 @@ class App extends PureComponent {
         const { loadedUserInfo } = this.state
         
         if (loadedUserInfo) {
-            if (username.length === 0) {
-                return <Redirect to={config.url.login.path} />
-            }
+            // if (username.length === 0) {
+            // return <Redirect to={config.url.login.path} />
+            // }
 
             return (
                 <div id="chief">
@@ -49,9 +49,10 @@ class App extends PureComponent {
                         logout={logout}
                     />
                     <Switch>
+                        <Route path={config.url.app.echartsPage.path} component={lazyload(import('@/echarts/components/main'))} />
                         <Route path={config.url.app.todos.path} component={lazyload(import('@/todos/components/main'))} />
                         <Route path={config.url.app.others.path} component={lazyload(import('@/others/main'))} />
-                        <Route path={url} exact render={() => <Redirect to={config.url.app.todos.path} />} />
+                        <Route path={url} exact render={() => <Redirect to={config.url.app.echartsPage.path} />} />
                     </Switch>
                 </div>
             )
@@ -63,7 +64,7 @@ class App extends PureComponent {
 
 App.propTypes = {
     match: PropTypes.object.isRequired,
-    getUserInfo: PropTypes.func.isRequired,
+    // getUserInfo: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
     username: PropTypes.string.isRequired
 }

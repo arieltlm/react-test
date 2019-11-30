@@ -29,9 +29,9 @@ const Header = function ({ username, logout, history }) {
                     <li>
                         <NavLink
                             replace
-                            to={config.url.login.path}
+                            to={config.url.app.echartsPage.path}
                             activeClassName="active"
-                        >登录
+                        >echarts
                         </NavLink>
                     </li>
                     <li>
