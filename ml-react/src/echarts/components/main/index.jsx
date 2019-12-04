@@ -18,8 +18,6 @@ class echartsPage extends PureComponent {
     }
 
     componentDidMount() {
-        const a = 1231
-        console.log('%c a===', 'color:#497EFC;background: #03FECF;', a)
     }
 
     render() {
