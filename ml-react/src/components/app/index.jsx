@@ -44,10 +44,10 @@ class App extends PureComponent {
 
             return (
                 <div id="chief">
-                    <Header
+                    {/* <Header
                         username={username}
                         logout={logout}
-                    />
+                    /> */}
                     <Switch>
                         <Route path={config.url.app.echartsPage.path} component={lazyload(import('@/echarts/components/main'))} />
                         <Route path={config.url.app.todos.path} component={lazyload(import('@/todos/components/main'))} />
