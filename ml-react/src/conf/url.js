@@ -13,6 +13,10 @@ const url = {
             title: 'todos',
             path: '/app/todos'
         },
+        test:{
+            title: 'test',
+            path: '/app/test'
+        },
         others: {
             title: 'others',
             path: '/app/others'
@@ -40,7 +44,12 @@ const url = {
         echartsPage:{
             title: 'echarts',
             path: '/app/echarts'
+        },
+        pathToRegexp:{
+            title: 'pathToRegexp',
+            path:'/app/pathtoregexp-test/id/:params'
         }
+        
     }
 }
 

@@ -370,6 +370,11 @@ dd {
   );
   position: relative;
   overflow: hidden;
+
+  .main-content{
+    @include size(100%, calc(100% - 60px));
+    overflow: auto;
+  }
 }
 
 .input-group {

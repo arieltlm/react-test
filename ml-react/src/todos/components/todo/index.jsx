@@ -77,6 +77,7 @@ class TodoSingle extends PureComponent {
     render() {
         const { data, hideDelIcon, hideEditInput } = this.state
       
+
         return (
             <li
                 onMouseEnter={() => this.toggleHideDelIcon(false)}

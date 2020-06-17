@@ -42,12 +42,20 @@ const Header = function ({ username, logout, history }) {
                         >todos示例
                         </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink
                             replace
                             to={config.url.app.others.path}
                             activeClassName="active"
                         >其它
+                        </NavLink>
+                    </li> */}
+                    <li>
+                        <NavLink
+                            replace
+                            to={config.url.app.test.path}
+                            activeClassName="active"
+                        >?.实验
                         </NavLink>
                     </li>
                 </ul>

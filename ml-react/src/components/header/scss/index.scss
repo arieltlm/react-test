@@ -5,13 +5,17 @@
   overflow:hidden;
 
   #logo {
-    @include size(150px, 60px);
-    background: url("../images/nav-logo.png") 20px 13px no-repeat;
+    @include size(50px, 50px);
+    background: url("../images/nav-logo.png") center no-repeat;
+    background-size:100% 100%;
     overflow: hidden;
+    margin-top:5px;
   }
   .navigation {
     height: 60px;
     overflow: hidden;
+    padding-left: 30px;
+
 
     li {
       @include size(120px, 60px);
@@ -22,7 +26,6 @@
       a {
         @include size(100%, 100%);
         text-decoration: none;
-        padding-left: 35px;
         color: $header-font-color;
         display: block;
         position: relative;

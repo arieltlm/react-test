@@ -288,7 +288,7 @@ class echartsPage extends PureComponent {
                     playInterval: 2500,
                     left: '10%',
                     right: '40%',
-                    bottom: '3%',
+                    bottom: '10%',
                     width: '55%',
                     label: {
                         normal: {
