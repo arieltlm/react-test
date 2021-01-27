@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.container {
+  width:100vw;
+  height:100vh;
+}
+
+.container header {
+    display:flex;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background:#2b5db9;
+}
+
+.container header h1{
+    padding-left:24px;
+    color:#fff;
+}
+
+.container main{
+    padding:24px;
+    height:calc(100% - 60px);
+    width:100%;
+}
+
+.container .menus{
+    margin-left:40px;
+}
+
+.container .menus li{
+    display:inline-block;
+    padding:0 16px;
+}
+.container .menus li a{
+    color:#fff;
+}
+.container .menus li a.active-navlink{
+    color:aqua;
+}
