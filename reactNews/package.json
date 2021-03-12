@@ -14,7 +14,7 @@
     "rc-util": "^4.0.4",
     "react": "^16.4.1",
     "react-beautiful-dnd": "^9.0.0",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.4.1",
     "react-responsive": "^5.0.0",
     "react-router-dom": "^4.3.1",
